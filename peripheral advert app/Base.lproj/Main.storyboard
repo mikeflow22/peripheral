@@ -21,7 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yif-Rg-Uys">
                                 <rect key="frame" x="0.0" y="20" width="320" height="200"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                <state key="normal" title="Push This Sucka"/>
+                                <state key="normal" title="Advertise"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5WX-7q-Ha8"/>
                                 </connections>
@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="235" width="320" height="245"/>
                                 <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                <state key="normal" title="Stop the advert">
+                                <state key="normal" title="Stop">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
