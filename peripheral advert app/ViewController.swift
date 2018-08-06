@@ -39,7 +39,6 @@ class ViewController: UIViewController , CBPeripheralManagerDelegate  {
 //        addServ.characteristics = [myChar]
         print("My services that I added: \(addServ)")
         
-    
     }
     
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
