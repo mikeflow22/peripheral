@@ -12,6 +12,7 @@
 		1B2AD360210A498E00D518C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B2AD35E210A498E00D518C1 /* Main.storyboard */; };
 		1B2AD362210A498F00D518C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B2AD361210A498F00D518C1 /* Assets.xcassets */; };
 		1B2AD365210A498F00D518C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B2AD363210A498F00D518C1 /* LaunchScreen.storyboard */; };
+		1B5071A42124D4300072A0EB /* AdvertizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5071A32124D4300072A0EB /* AdvertizeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		1B2AD361210A498F00D518C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B2AD364210A498F00D518C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B2AD366210A498F00D518C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B5071A32124D4300072A0EB /* AdvertizeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertizeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				1B2AD35A210A498E00D518C1 /* AppDelegate.swift */,
 				1B2AD35C210A498E00D518C1 /* ViewController.swift */,
+				1B5071A32124D4300072A0EB /* AdvertizeController.swift */,
 				1B2AD35E210A498E00D518C1 /* Main.storyboard */,
 				1B2AD361210A498F00D518C1 /* Assets.xcassets */,
 				1B2AD363210A498F00D518C1 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B2AD35D210A498E00D518C1 /* ViewController.swift in Sources */,
+				1B5071A42124D4300072A0EB /* AdvertizeController.swift in Sources */,
 				1B2AD35B210A498E00D518C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

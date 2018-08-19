@@ -9,63 +9,71 @@
 import UIKit
 import CoreBluetooth
 
-class ViewController: UIViewController , CBPeripheralManagerDelegate  {
+class ViewController: UIViewController ,  UITextFieldDelegate , CBPeripheralManagerDelegate {
 
+    //MARK: IBOutlets
+    @IBOutlet weak var myTextField: UITextField!
     
-    
-    var myPeri: CBPeripheralManager?
-   
-    var myChar = CBMutableCharacteristic(type: CBUUID(string: "EFA65E46-6B1A-456B-B2A4-163A96A40B11"), properties: .read, value: nil, permissions: .readable)
-    //    let myServUUID = CBUUID(string: "9FDF7E04-BF50-4617-82CA-5667F5BBBB4E")
-    var addServ = CBMutableService(type: CBUUID(string: "9FDF7E04-BF50-4617-82CA-5667F5BBBB4E"), primary: true) //primary: describes the primary functionality of a device and can be included (REFERENCED) by another service.
-
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        myPeri = CBPeripheralManager(delegate: self, queue: nil)
+     
+        AdvertizeController.shared.myPeri = CBPeripheralManager(delegate: self, queue: nil)
+        myTextField.delegate = self
+        
     }
 
-    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        if peripheral.state == .poweredOn {
-            print("It's powered on!")
-        
-        }
-    }
-    
-    func peripheralManager(_ peripheral: CBPeripheralManager, didAdd service: CBService, error: Error?) {
-        print("This is the service's UUID: \(service.uuid.uuidString)")
-        print("This is the service UUID Data: \(service.uuid.data)")
-//        addServ.characteristics = [myChar]
-        print("My services that I added: \(addServ)")
-        
-    }
-    
-    func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
-       addServ.characteristics = [myChar]
-        peripheral.add(addServ)
-//        myPeri = peripheral
-//        print(myPeri)
-    }
-    
-    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveRead request: CBATTRequest) {
-        if request.characteristic.uuid == myChar.uuid {
-            print("the uuid's match")
-        }
-    }
-    
-    
+    //MARK: IBActions
     @IBAction func buttonPressed(_ sender: UIButton) {
+        
         print("advertising")
-//        myPeri?.startAdvertising([CBAdvertisementDataServiceUUIDsKey : addServ.uuid])
-        myPeri?.startAdvertising( [CBAdvertisementDataLocalNameKey : "HFQ" ])
+//        AdvertizeController.shared.myPeri?.startAdvertising(AdvertizeController.shared.nameKey )
+        AdvertizeController.shared.startAdvertizing()
     }
-    
-    
+  
     @IBAction func stopScanning(_ sender: UIButton) {
-        myPeri?.stopAdvertising()
-        myPeri?.remove(addServ)
+        
+        AdvertizeController.shared.myPeri?.stopAdvertising()
+        AdvertizeController.shared.myPeri?.remove(AdvertizeController.shared.addServ)
         print("done advertising")
+        
     }
+    
+    @IBAction func sendButtonPressed(_ sender: UIButton) {
+        guard let myString = myTextField.text, !myString.isEmpty  else {return}
+        let newString = myString
+        let bytes = newString.utf8
+        print(bytes)
+        var buffer = [UInt8](bytes)
+        buffer[0] = buffer[0] + UInt8(1)
+        print(buffer)
+    }
+
 }
+
+extension ViewController {
+    
+    //MARK: CBPeripheralManagerDelegate Functions
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        
+        if peripheral.state == .poweredOn {
+            
+            print("It's powered on!")
+            
+        }
+        
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
 
